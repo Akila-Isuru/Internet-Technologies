@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <script>
+        // Declairing an Object
+        let student = {
+           name : "Akila",
+           age : 21,
+           
+          sayHi : function(){
+            console.log("hi");
+          }
+        }
+        console.log(student);
+        student.sayHi();
+
+        // another way to add fution to an object instead adding it inside of the object's scope
+
+        student.sayBye = function(){
+            console.log("Bye");
+        }
+
+        // Adding attribute
+
+        student.address = "Galle";
+        console.log(student.address);
+
+        // deleting attribute
+
+        delete student.address;
+        console.log(student.address);
+
+
+        // USING THIS KEYWORD
+
+        let teacher = {
+            name : "dassnayake",
+            age : "26",
+            teach : function(){
+                console.log("teacher name "+this.name);
+            }
+        }
+        teacher.teach();
+
+        teacher.name = "saman";
+        teacher.teach();
+
+
+        /// Common Object MEthods
+
+        console.log(Object.keys(teacher));
+        console.log(Object.values(teacher));
+        console.log(Object.entries(teacher));
+
+
+    </script>
+</head>
+<body>
+    <h1>
+        Objects in Js
+    
+    </h1>
+</body>
+</html>

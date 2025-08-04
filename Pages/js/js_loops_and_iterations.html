@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+    
+</head>
+<body>
+    <h1>
+        Loops and Iterations
+    </h1>
+    <ul id ="list">
+  <li>First Line </li>
+    </ul>
+    <script>
+//   FOR LOOPS
+       for(let i =0;i<5;i++){
+
+            console.log(i);
+        }
+
+        // WHILE LOOPS
+        let x = 0;
+
+        while(x<10){
+            let list = document.getElementById("list");
+            let  listItem = document.createElement("li");
+            let text = document.createTextNode("test");
+            listItem.appendChild(text);
+            list.appendChild(listItem);
+
+            x++;
+        }
+
+        // do - while LOOPS
+        y= 0;
+     
+    do{
+        y++
+         let list = document.getElementById("list");
+            let  listItem = document.createElement("li");
+            let text = document.createTextNode(y);
+            listItem.appendChild(text);
+            list.appendChild(listItem);
+
+           
+
+    }while(y<10)
+
+    // FOR - IN LOOPS use to get list of data in an object
+    let user = {
+        name :"Akila",
+        age : 20,
+        address : "Ambalangoda",
+        subject : "IT"
+    }
+    for (const data in user) {
+       console.log(data);
+       console.log(user[data])
+            
+        }
+
+        for (const data in user) {
+            let list = document.getElementById("list");
+            let  listItem = document.createElement("li");
+            let text = document.createTextNode(data);
+            listItem.appendChild(text);
+            list.appendChild(listItem);
+
+            
+                
+            
+        }
+    
+
+    </script>
+    
+</body>
+</html>

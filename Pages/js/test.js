@@ -1,0 +1,1 @@
+console.log("Js is a prototype based Object oriented programming language");

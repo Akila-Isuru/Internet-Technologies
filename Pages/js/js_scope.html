@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+    <script>
+        // Global scope
+        let globalScope = "This is global scope variabale";
+
+        test();
+        // apita palleha declared karala tibbat udin call karanna puluwan java awageee nemey hoisting feature eka nisaa tamay mehema wenne
+        
+        
+       function test(){
+        let localScope = "This is local scope variabe";
+        console.log(globalScope);
+        console.log(localScope);
+         
+       }
+       test();
+       console.log(globalScope);
+    //    console.log(localScope);
+    //    cant access local scope outside of the scope;
+        
+    // Block Scope
+
+    {
+        let myName = "Akila";
+        console.log(globalScope);
+    }
+    //console.log(myName);
+    // cant access block codes outsiode of the scope.only can access inside of the scope
+         
+    </script>
+</head>
+<body>
+    <h1>Scope</h1>
+    
+</body>
+</html>

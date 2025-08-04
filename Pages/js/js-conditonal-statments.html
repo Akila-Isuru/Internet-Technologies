@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditonal Statement</title>
+
+</head>
+<body>
+    <h1>
+        Conditonal Statement
+        </h1>
+        <br>
+
+        Name : 
+        <input type="text" id="name">
+        <button onclick="CheckName()">
+            check Name
+        </button>
+        <br>
+
+        Age :
+        <input type="text" id = "age">
+        <button onclick="checkInput()">
+             check age 
+        </button>
+        <br>
+
+        District : 
+        <select id="district">
+            <option value="colombo">colombo</option>
+            <option value="Galle">Galle</option>
+            <option value="Matara">Matara</option>
+            <option value="Ambalangoda">Ambalangoda</option>
+
+        </select>
+         <button onclick="CheckDistrict()">
+                CheckDistrict
+            </button>
+    
+            
+
+        <script>
+            function checkInput(){
+                let age = document.getElementById("age").value;
+
+                // TERNARY OPERATOR       
+                age = (age =='') ? 10 : age;
+                console.log("Age is :"+age); 
+                
+                // IF STATEMENTS 
+
+                if(age >= 18){
+                    console.log("18 or older than 18");
+
+                }else{
+                    console.log("less than 18");
+                }
+                           
+            }
+
+            // SWITCH STATEMENTS
+
+            function CheckDistrict(){
+                let district = document.getElementById("district").value
+                console.log("Distric is :"+district)
+
+                switch(district){
+                    case "colombo": 
+                    console.log("in colombo");
+                    break;
+
+                    case "Galle" :
+                        console.log("in Galle");
+                        break;
+
+                    
+                }
+
+            }
+            function CheckName(){
+                let name = document.getElementById("name").value
+                let output = (name =='') ? "PLs enter your name " : name;
+                console.log(output)
+            }
+        </script>
+
+    
+    
+</body>
+</html>

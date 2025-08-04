@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison & Logical Operators</title>
+</head>
+<body>
+    <label for="input1">Input 1</label>
+    <input type="number" id = "input1">
+    <br>
+    <br>
+    <label for="input2">Input2</label>
+    <input type="number" id = "input2">
+    <br>
+    <br>
+    <button onclick="compare()">
+        compare
+
+    </button>
+    <div id = "result"></div>
+    <script>
+
+        function compare(){
+            let val1 = document.getElementById("input1").value;
+            let val2 = document.getElementById("input2").value;
+            val1 = Number(val1);
+            val2 = Number(val2);
+
+            console.log(typeof val1,typeof val2);
+            let output ;
+
+
+            if(val1 == val2){
+                console.log("val 1 == val2");
+                output = "val 1 == val2 <br>"
+            }
+
+            // "===" THIS CHCKS WHETHER TYPES OF VARIABLES ARE THE SAME NOT ONLY VALUE OF THE VARIABLES
+
+            if(val1 === 2){
+                output += "val === val2 <br>";
+
+            }
+            // CHECKS NOT EQUALITY
+            if(val1 != val2){
+                output += "val1 != val2 <br>";
+
+            }
+            // && eka || eka >=, <= ookoma java wala tiyena comparison meeket tiyenoooooo
+
+
+
+            document.getElementById("result").innerHTML = output;
+
+        }
+
+    </script>
+    
+</body>
+</html>
