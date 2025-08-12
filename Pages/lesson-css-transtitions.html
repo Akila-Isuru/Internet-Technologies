@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transitions</title>
+    <style>
+      #addToCartBtn {
+        background-color: black;
+        color: white;
+        padding: 12px 48px;
+        border-radius: 12px;
+        transition: background-color 1s;
+      }
+
+      #addToCartBtn:hover {
+        background-color: white;
+        color: black;
+        scale: 1.5;
+        transition: scale 1.5s;
+      }
+      .circle {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        border-radius: 50%;
+        background-color: greenyellow;
+        transition: background-color 3s ease-in-out, transform 3s ease-in-out,
+          scale 3s ease-in-out;
+      }
+      .circle:hover {
+        background-color: red;
+        scale: 1.5;
+        transform: translate(150px);
+      }
+      image {
+        width: 100%;
+        transition: transform 4s ease-in-out;
+      }
+      .imageContainer {
+        width: 200px;
+        height: 200px;
+      }
+
+      .imageContainer:hover img {
+        transform: scale(1.5);
+        transform: scale(1.5) rotate(90deg);
+      }
+      h1 {
+        color: red;
+        opacity: 0.4;
+        transition: opacity 2s ease-in;
+
+        /*      blur karanne meeeken tamay default value eka 1 */
+      }
+      h1:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="addToCartBtn">Add to Cart</button>
+    <hr />
+    <br />
+    <div class="circle"></div>
+    <hr />
+    <br />
+    <div class="imageContainer">
+      <img class="image" src="/images/facebook.jpeg" alt="image" />
+    </div>
+    <hr />
+    <br />
+    <h1>Hello World</h1>
+  </body>
+</html>

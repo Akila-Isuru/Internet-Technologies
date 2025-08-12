@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exercise-10</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        background-color: aquamarine;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+      .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: black;
+        animation-delay: 0.5s;
+
+        animation: down-up 1.5s ease-in-out infinite 0s;
+      }
+      .circle {
+        display: flex;
+      }
+
+      @keyframes down-up {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-100px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      .container {
+        height: 200px;
+        display: flex;
+        gap: 12px;
+      }
+
+      #c1 {
+        animation-delay: 0s;
+      }
+
+      #c2 {
+        animation-delay: 0.3s;
+      }
+      #c3 {
+        animation-delay: 0.9s;
+      }
+      #c4 {
+        animation-delay: 1.2s;
+      }
+      #c5a {
+        animation-delay: 1.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="circle1" id="c1"></div>
+      <div class="circle" id="c2"></div>
+      <div class="circle" id="c3"></div>
+      <div class="circle" id="c4"></div>
+      <div class="circle" id="c5"></div>
+    </section>
+  </body>
+</html>
