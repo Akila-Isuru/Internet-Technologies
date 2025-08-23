@@ -1,43 +1,32 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM</title> 
-    
- </head>
- <body>
-    <h1 id ="tittle">
-        Document Object Model in Js
-    </h1>
-    <p id = "text">
-        Testing
-    </p>
-    <br>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1 id="tittle">Document Object Model in Js</h1>
+    <p id="text">Testing</p>
+    <br />
     <a id="myLink" href=" https://www.google.com">click here to open google</a>
-    <br>
-    <button>
-        Click Here
-    </button>
-    
+    <br />
+    <button>Click Here</button>
+
     <script>
-        // Element ekak accesss karanne mehemayiiiii
+      // Element ekak accesss karanne mehemayiiiii
 
-        let tittleElement = document.getElementById("tittle");
-        console.log(tittleElement);
-        console.log(tittleElement.innerHTML);
+      let tittleElement = document.getElementById("tittle");
+      console.log(tittleElement);
+      console.log(tittleElement.innerHTML);
 
-        // element ekak change karanne mehema
+      // element ekak change karanne mehema
 
-        tittleElement.innerHTML = "Changed";
-       let myLink = document.getElementById("myLink");
-       myLink.href = "https://www.google.com";
-       myLink.innerHTML = "Google.com"
-       myLink.style.color = "red";
-        
-        
-
+      tittleElement.innerHTML = "Changed";
+      let myLink = document.getElementById("myLink");
+      myLink.href = "https://www.google.com";
+      myLink.innerHTML = "Google.com";
+      myLink.style.color = "red";
     </script>
-    
- </body>
- </html>
+  </body>
+</html>
