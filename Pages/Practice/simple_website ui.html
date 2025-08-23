@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-site</title>
+    <!-- Open Sans font එක Google Fonts වලින් load කරන ලදි. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0; /* body එකේ පෙරනිමි margin ඉවත් කිරීමට. අනවශ්‍ය ලෙස දෙවරක් තිබූ එක ඉවත් කරන ලදි. */
+        font-family: "Open Sans", sans-serif; /* අකුරු වර්ගය යෙදීම */
+        background-color: #f4f4f4; /* සැහැල්ලු පසුබිම් වර්ණය */
+        color: #333; /* පොදු අකුරු වර්ණය */
+        line-height: 1.6; /* පේළි අතර පරතරය කියවීමේ පහසුව සඳහා වැදගත් වේ. */
+      }
+      header {
+        /* Header කොටසට අදාළ style */
+        background-color: #333; /* තද අළු පැහැති පසුබිම */
+        width: 100%; /* සම්පූර්ණ පළල ගැනීමට */
+        height: 110px; /* නියත උසක් */
+        display: flex; /* අන්තර්ගතය Flexbox භාවිතයෙන් පෙළගැස්වීමට */
+        justify-content: center; /* අන්තර්ගතය තිරස්ව මැදට ගැනීමට */
+        align-items: center; /* අන්තර්ගතය සිරස්ව මැදට ගැනීමට */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Header එකට සෙවනැල්ලක් එකතු කිරීම. */
+        position: sticky;
+        top: 0;
+      }
+      header h1 {
+        /* Header එක තුළ ඇති h1 (මාතෘකාව) ට අදාළ style */
+        color: white; /* අකුරු වර්ණය CSS තුළම යෙදීම. HTML එකේ තිබූ inline style එක ඉවත් කරන ලදි. */
+        margin: 0; /* පෙරනිමි margin ඉවත් කිරීමට. */
+        font-size: 2.5rem; /* අකුරු ප්‍රමාණය. rem භාවිතය Responsive design සඳහා වඩා හොඳයි. */
+      }
+      #nav_bar {
+        /* Navigation bar එකට අදාළ style */
+        width: 100%; /* සම්පූර්ණ පළල */
+        height: 40px; /* නියත උස */
+        background-color: #555; /* මදක් අළු පැහැති පසුබිම */
+        display: flex; /* links Flexbox භාවිතයෙන් පෙළගැස්වීමට */
+        justify-content: center; /* links තිරස්ව මැදට ගැනීමට */
+        align-items: center; /* links සිරස්ව මැදට ගැනීමට */
+        position: sticky;
+        top: 110px;
+      }
+      #nav_bar a {
+        /* Navigation links වලට අදාළ style */
+        color: white; /* සුදු අකුරු */
+        /* padding: 27px; <-- මෙහි padding විශාල වැඩියි, අලංකාර පෙනුමක් සඳහා rem units සමඟ අඩු කරන ලදි. */
+        padding: 0.8rem 1.2rem; /* links වටා ඇති padding. */
+        text-decoration: none; /* යටින් ඉරි ඉවත් කිරීමට */
+        margin: 0 0.5rem; /* links අතර පරතරය. */
+        border-radius: 4px; /* වටකුරු කොන්. */
+        display: inline-block; /* transform ක්‍රියාත්මක වීමට අවශ්‍යයි. */
+        /* background-color සහ transform යන දෙකම සඳහා smooth transition එකතු කරන ලදි. */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        transform: scale(1); /* ආරම්භක scale ප්‍රමාණය (සාමාන්‍ය ප්‍රමාණය). */
+      }
+      #nav_bar a:hover {
+        /* Navigation links hover කළ විට වෙනස් වන style */
+        /* #nav_bar a :hover <-- මෙහි 'a' සහ ':' අතර ඇති හිස්තැන නිවැරදි කරන ලදි. */
+        background-color: #777; /* hover කළ විට පසුබිම් වර්ණය වෙනස් කිරීමට */
+        transform: scale(1.05); /* hover කළ විට මදක් විශාල වීමට (5% කින්). */
+      }
+      #main_content {
+        /* ප්‍රධාන අන්තර්ගත කොටසට අදාළ style */
+        background-color: #fff; /* සුදු පසුබිම. මෙය කලින් comment කර තිබුණි. */
+        margin: 20px; /* දාරවලින් ඉඩක්. */
+        max-width: 960px; /* විශාල තිරවලදී අන්තර්ගතය ඕනෑවට වඩා නොපැතිරීමට උපරිම පළලක්. */
+        margin: 2rem auto; /* මැදට ගැනීමට සහ ඉහළ / පහළ margin. */
+        border-radius: 8px; /* වටකුරු කොන් */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* සෙවනැල්ලක්. */
+        padding: 2rem; /* ඇතුළත padding. */
+      }
+      #main_content h3 {
+        /* අන්තර්ගතයේ උපමාතෘකාවලට අදාළ style */
+        color: #007bff; /* නිල් වර්ණය */
+        margin-bottom: 1rem; /* පහළ margin. */
+        border-bottom: 2px solid #eee; /* යටින් රේඛාවක්. */
+        padding-bottom: 0.5rem; /* රේඛාවට උඩින් padding. */
+      }
+
+      #service {
+        /* '#service' ID එක h3 tag එකට යොදා ඇතත්, එයට විශේෂ styling ගොඩක් අඩංගු නොවේ. */
+        margin-top: 28px;
+      }
+      #footer {
+        /* Footer කොටසට අදාළ style */
+        background-color: #333; /* තද අළු පැහැති පසුබිම */
+        display: flex; /* අන්තර්ගතය Flexbox භාවිතයෙන් පෙළගැස්වීමට */
+        justify-content: center; /* අන්තර්ගතය තිරස්ව මැදට ගැනීමට */
+        align-items: center; /* අන්තර්ගතය සිරස්ව මැදට ගැනීමට */
+        height: 110px; /* නියත උසක් */
+        width: 100%; /* <--- width: 1000% <--- මෙය නිවැරදි කරන ලදි! */
+        color: white; /* සුදු අකුරු */
+        margin-top: 3rem; /* ප්‍රධාන අන්තර්ගතයට පහළින් පරතරයක් තැබීම. */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Footer එකට සෙවනැල්ලක් (ඉහළට). */
+      }
+
+      /* Responsive adjustments (කුඩා තිර සඳහා වෙනස්කම්) */
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem; /* කුඩා තිරවලදී මාතෘකාවේ අකුරු ප්‍රමාණය අඩු කිරීමට */
+        }
+        #nav_bar {
+          flex-wrap: wrap; /* navigation links එක පේළියක නොගැලපෙන විට පහළට ඒමට */
+          height: auto; /* උස ස්වයංක්‍රීයව සකස් වීමට */
+          padding: 0.5rem 0; /* padding අඩු කිරීමට */
+        }
+        #nav_bar a {
+          padding: 0.6rem 0.8rem; /* කුඩා තිරවලදී padding අඩු කිරීමට */
+          margin: 0.3rem; /* links අතර පරතරය අඩු කිරීමට */
+          font-size: 0.9rem; /* අකුරු ප්‍රමාණය අඩු කිරීමට */
+        }
+        #main_content {
+          padding: 1rem; /* කුඩා තිරවලදී padding අඩු කිරීමට */
+          margin: 1rem; /* කුඩා තිරවලදී margin අඩු කිරීමට */
+        }
+        #main_content h3 {
+          font-size: 1.5rem; /* කුඩා තිරවලදී උපමාතෘකාවේ අකුරු ප්‍රමාණය අඩු කිරීමට */
+        }
+        .footer {
+          height: auto; /* කුඩා තිරවලදී උස ස්වයංක්‍රීයව සකස් වීමට */
+          padding: 1rem 0; /* padding අඩු කිරීමට */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML ව්‍යුහ දෝෂය නිවැරදි කරන ලදි: <header> සහ <nav> tags <body> තුළට ගෙන එන ලදි. -->
+    <header>
+      <h1>My Awesome Website</h1>
+    </header>
+
+    <div id="nav_bar">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <main id="main_content">
+      <h3>Welcome to Our Site!</h3>
+
+      <p>
+        This is a simple paragraph to introduce the main content of your
+        website. You can replace this with any information you want to share
+        with your visitors. It's designed to be clean and easy to read. Lorem
+        ipsum dolor sit, amet consectetur adipisicing elit. Inventore fugit
+        distinctio in deserunt officiis recusandae voluptatibus rerum ratione
+        sed mollitia earum, iure magni sequi vero hic dolor nesciunt dignissimos
+        temporibus magnam obcaecati sit non voluptatum? Fugiat rerum deserunt
+        labore eius? Asperiores necessitatibus possimus autem doloribus iure
+        voluptatum quia, non quidem beatae? Quam, esse aliquid, deleniti quaerat
+        tempore fugit veniam rem quasi magni itaque iste voluptate, suscipit
+        cumque nemo? Explicabo, eveniet nesciunt. Culpa illo esse repellendus
+        officia eos accusamus animi qui delectus quis dolore, explicabo earum
+        illum nisi consequatur voluptatem. Aliquid, voluptatum tenetur eum alias
+        fugit quo nobis ullam, corrupti omnis mollitia id doloribus quia eveniet
+        eaque veritatis accusantium iusto velit dolores necessitatibus commodi
+        suscipit cupiditate quos temporibus? Assumenda sapiente sit, minus
+        dolores odit enim saepe recusandae fugit aspernatur asperiores quasi
+        temporibus, consectetur repellendus dolorum repudiandae non. Ut saepe
+        reiciendis, fugit ullam necessitatibus, delectus eaque veritatis
+        doloribus quod non vel adipisci similique dolorum cum rem. Quos,
+        doloribus at cupiditate cum maxime dolores! Ipsa fugit commodi ullam,
+        repudiandae voluptate saepe placeat odio eius quae exercitationem
+        architecto omnis porro temporibus, ducimus deleniti accusantium unde,
+        esse accusamus dolorum corrupti. Dignissimos sint quae deserunt tempore
+        temporibus eius! Laborum ut id veniam accusantium earum magnam
+        laudantium odio.
+      </p>
+      <p>
+        Feel free to modify the HTML and CSS to practice your web development
+        skills. Try changing colors, adding more sections, or experimenting with
+        different layouts. Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Ipsum unde, laborum nulla et sunt voluptate iusto ratione
+        temporibus eligendi! Enim vero natus quae expedita architecto culpa
+        dolores facere molestias quasi saepe harum, ea nemo dolorum soluta,
+        doloremque earum deleniti consectetur nihil? Consequatur, obcaecati enim
+        fugit veniam quibusdam pariatur quasi cumque? Ab in totam optio ea, quas
+        amet ullam dignissimos minima sunt explicabo maiores deserunt id
+        voluptatem cum. Excepturi tenetur laudantium iusto incidunt ut aut
+        delectus labore deserunt minus, vitae necessitatibus officia
+        exercitationem ipsum laboriosam, sunt quaerat ex ratione itaque eveniet
+        consequatur laborum similique facere. Voluptatum tenetur nam consectetur
+        fugiat tempora.
+      </p>
+
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam
+        libero rem et labore natus eos odit recusandae impedit incidunt nostrum
+        temporibus, nemo tenetur obcaecati in, ipsum repellat debitis quam.
+        Neque, explicabo perspiciatis magnam eum pariatur iure distinctio,
+        reprehenderit quis alias, cupiditate deserunt. Incidunt perspiciatis
+        iure molestias, suscipit dolor at sed repellat sit, vitae possimus rem,
+        aliquid saepe aliquam accusantium dicta autem porro voluptatem nobis.
+        Dolor libero labore esse error harum et temporibus explicabo repellat
+        deleniti iste quae nulla similique numquam debitis totam cumque nesciunt
+        modi ad soluta, deserunt nostrum doloremque. Vel suscipit eos deleniti
+        hic. Harum placeat ratione officiis explicabo quos, eveniet error minus,
+        sint est incidunt reiciendis magni labore alias nam aut at. Nesciunt,
+        obcaecati deserunt? Suscipit rem perferendis laudantium! Officia
+        laboriosam repudiandae eveniet vitae labore officiis, debitis neque,
+        aperiam aut iure fuga dolorem voluptas quidem voluptate quod! Quas
+        perferendis beatae commodi fugit sed saepe natus, voluptates totam
+        reiciendis quam animi, iure deleniti. Molestias, itaque? Officiis odio
+        quae tempore obcaecati eos. Odit, hic expedita nulla non, quidem sequi
+        magni, quas similique perferendis ad autem iusto beatae fugit voluptatem
+        enim delectus doloremque voluptate facilis distinctio? Quasi accusantium
+        delectus laborum doloribus placeat, dolorem eveniet rem quibusdam
+        reprehenderit nam perferendis, quod ipsum libero quo praesentium
+        voluptates et! Illo, quo fugiat est ipsam placeat qui neque, rem cumque
+        culpa commodi fuga nulla sit sunt eaque! Officiis vero quis, officia,
+        sunt voluptates consectetur ea, recusandae nesciunt animi nisi assumenda
+        aperiam accusantium distinctio quidem pariatur saepe iste accusamus
+        inventore deserunt nam soluta ipsa blanditiis hic. Hic ipsa, veritatis
+        quisquam, inventore pariatur maiores cumque repudiandae officia
+        cupiditate voluptates alias unde numquam! Maxime dicta, fugiat aliquid
+        expedita obcaecati quam tempore ipsa, totam nesciunt aperiam autem
+        commodi incidunt omnis molestiae nulla. Eveniet, labore nemo! Eveniet
+        optio nisi reprehenderit beatae, nam at error ratione quasi corporis
+        odit tempora, a, qui ipsum facere animi. Aliquid reprehenderit eaque ex
+        maxime officia ea fugit beatae dolorem magnam saepe? Repudiandae dolorum
+        vitae necessitatibus iste dolores laborum labore suscipit, eligendi ex
+        cum in dignissimos perspiciatis quasi consequuntur dolore! Ipsam
+        explicabo sint, esse suscipit adipisci sit necessitatibus, alias
+        sapiente assumenda, voluptatibus soluta fuga et numquam.
+      </p>
+      <h3 id="service">Our Services</h3>
+
+      <ul>
+        <li>Web Design & Development</li>
+        <li>Mobile App Development</li>
+        <li>Digital Marketing</li>
+        <li>Content Creation</li>
+      </ul>
+    </main>
+    <footer id="footer">
+      &copy; 2025 My Simple Website.All rights reserved.
+    </footer>
+  </body>
+</html>

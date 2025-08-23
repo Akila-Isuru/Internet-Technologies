@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Login</title>
+    <!-- පිටුවේ මාතෘකාව 'Facebook Login' ලෙස වෙනස් කරන ලදි -->
+    <!-- Inter font එක Google Fonts වලින් load කරන ලදි. මෙය Facebook හි පොදු අකුරු වලට සමීප වේ. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        /* සම්පූර්ණ පිටුව මැදට ගැනීමට සහ අංග දෙපසට (Facebook logo සහ form) තැබීමට */
+        display: flex;
+        justify-content: center; /* අංග තිරස්ව මැදට ගෙන ඒමට */
+        align-items: center; /* අංග සිරස්ව මැදට ගැනීමට */
+        min-height: 100vh; /* සම්පූර්ණ තිරයේ උස ආවරණය කිරීමට */
+        background-color: #f0f2f5; /* Facebook හි සම්මත පසුබිම් වර්ණය */
+        font-family: "Inter", sans-serif; /* පොදු අකුරු වර්ගය */
+        margin: 0; /* body එකේ පෙරනිමි margin ඉවත් කිරීමට */
+        flex-wrap: wrap; /* කුඩා තිරවලදී අංග පහළට ඒමට */
+        gap: 80px; /* Facebook logo කොටස සහ form එක අතර පරතරය */
+      }
+      .left-panel {
+        /* Facebook logo සහ tagline අඩංගු කොටස සඳහා style */
+        text-align: left; /* අන්තර්ගතය වමට පෙළගැස්වීමට */
+        max-width: 500px; /* උපරිම පළල */
+        padding: 20px; /* ඇතුළත ඉඩ */
+        box-sizing: border-box; /* padding සහ border පළලට බලපෑම් නොකිරීමට */
+      }
+      .left-panel h1 {
+        /* Facebook logo text එකට අදාළ style */
+        font-family: "Arial Black", sans-serif; /* Facebook logo අකුරු වර්ගයට සමීපව */
+        font-size: 60px; /* විශාල අකුරු ප්‍රමාණය */
+        color: #1877f2; /* Facebook හි නිල් වර්ණය */
+        margin-bottom: 0; /* පහළ margin ඉවත් කිරීමට */
+      }
+      .left-panel p {
+        /* Tagline එකට අදාළ style */
+        font-size: 24px; /* අකුරු ප්‍රමාණය */
+        line-height: 1.2; /* පේළි අතර පරතරය */
+        color: #1c1e21; /* අකුරු වර්ණය */
+        margin-top: 5px; /* ඉහළ margin කුඩා කිරීමට */
+      }
+
+      .container {
+        /* Login form එකේ container එකට අදාළ style */
+        display: flex;
+        flex-direction: column; /* අංග සිරස්ව පෙළගැස්වීමට */
+        width: 396px; /* Facebook login form එකට සමාන පළලක් */
+        height: auto; /* අන්තර්ගතයට අනුව උස ස්වයංක්‍රීයව සකස් වීමට */
+        background-color: #fff; /* සුදු පසුබිම */
+        border-radius: 8px; /* වටකුරු කොන් */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* සෙවනැල්ල */
+        padding: 20px; /* ඇතුළත ඉඩ */
+        box-sizing: border-box; /* padding සහ border පළලට බලපෑම් නොකිරීමට */
+        text-align: center; /* අභ්‍යන්තර අංග මැදට ගැනීමට (උදා: buttons) */
+      }
+      #email_input,
+      #password_input {
+        /* Email සහ Password input fields සඳහා style */
+        width: calc(100% - 32px); /* container එකේ padding අඩු කිරීමට */
+        height: 50px; /* උස වැඩි කිරීමට */
+        margin: 10px auto; /* මැදට ගැනීමට සහ ඉහළ / පහළ margin */
+        padding: 0 16px; /* ඇතුළත padding */
+        border: 1px solid #dddfe2; /* මායිම් වර්ණය */
+        border-radius: 6px; /* වටකුරු කොන් */
+        font-size: 17px; /* අකුරු ප්‍රමාණය */
+        box-sizing: border-box; /* padding සහ border පළලට බලපෑම් නොකිරීමට */
+      }
+      #password_input {
+        /* Password input එකට type="password" දමන ලදි */
+        -webkit-text-security: disc; /* iOS Safari සඳහා password dots */
+      }
+      #login_button {
+        /* Login button එකට අදාළ style */
+        width: calc(100% - 20px); /* container එකේ padding අඩු කිරීමට */
+        height: 50px; /* උස */
+        margin: 10px auto; /* මැදට ගැනීමට */
+        background-color: #1877f2; /* Facebook නිල් වර්ණය */
+        border: none; /* මායිම් නැත */
+        border-radius: 6px; /* වටකුරු කොන් */
+        color: white; /* අකුරු වර්ණය */
+        font-size: 20px; /* අකුරු ප්‍රමාණය */
+        font-weight: bold; /* තද අකුරු */
+        cursor: pointer; /* pointer cursor */
+        transition: background-color 0.3s ease; /* වර්ණ වෙනස් වීමේ සජීවීකරණය */
+      }
+      #login_button:hover {
+        background-color: #166fe5; /* hover කළ විට වර්ණය වෙනස් කිරීමට */
+      }
+      #forget_password {
+        /* Forget password link එකට අදාළ style */
+        font-family: "Arial", sans-serif; /* අකුරු වර්ගය */
+        color: #1877f2; /* Facebook නිල් වර්ණය */
+        text-decoration: none; /* යටින් ඉරි ඉවත් කිරීමට */
+        font-size: 14px; /* අකුරු ප්‍රමාණය */
+        margin: 10px auto; /* මැදට ගැනීමට */
+        display: block; /* block-level element එකක් ලෙස සකසා මැදට ගැනීමට */
+      }
+      #forget_password:hover {
+        text-decoration: underline; /* hover කළ විට යටින් ඉරි දැමීමට */
+      }
+      hr {
+        /* රේඛාවට අදාළ style */
+        border: none; /* පෙරනිමි මායිම් ඉවත් කිරීමට */
+        border-top: 1px solid #dadde1; /* සිහින් රේඛාව */
+        margin: 20px 0; /* ඉහළ / පහළ margin */
+      }
+      #create_new_account {
+        /* Create new account button එකට අදාළ style */
+        width: 60%; /* පළල */
+        height: 50px; /* උස */
+        margin: 0 auto 10px auto; /* මැදට ගැනීමට */
+        background-color: #42b72a; /* Facebook කොළ වර්ණය */
+        border: none; /* මායිම් නැත */
+        border-radius: 6px; /* වටකුරු කොන් */
+        color: white; /* අකුරු වර්ණය */
+        font-size: 17px; /* අකුරු ප්‍රමාණය */
+        font-weight: bold; /* තද අකුරු */
+        cursor: pointer; /* pointer cursor */
+        transition: background-color 0.3s ease; /* වර්ණ වෙනස් වීමේ සජීවීකරණය */
+      }
+      #create_new_account:hover {
+        background-color: #36a420; /* hover කළ විට වර්ණය වෙනස් කිරීමට */
+      }
+
+      /* Responsive adjustments (කුඩා තිර සඳහා වෙනස්කම්) */
+      @media (max-width: 850px) {
+        body {
+          flex-direction: column; /* කුඩා තිරවලදී අංග පහළට (තීරු ලෙස) ඒමට */
+          gap: 20px; /* පරතරය අඩු කිරීමට */
+          padding: 20px; /* දාරවලින් ඉඩක් තැබීමට */
+          justify-content: flex-start; /* ඉහළින් ආරම්භ කිරීමට (සිරස් මැදට ගැනීම ඉවත් කිරීමට) */
+        }
+        .left-panel {
+          text-align: center; /* කුඩා තිරවලදී logo සහ tagline මැදට ගැනීමට */
+          max-width: 100%; /* සම්පූර්ණ පළල ගැනීමට */
+        }
+        .left-panel h1 {
+          font-size: 48px; /* කුඩා තිරවලදී අකුරු ප්‍රමාණය අඩු කිරීමට */
+        }
+        .left-panel p {
+          font-size: 20px; /* කුඩා තිරවලදී අකුරු ප්‍රමාණය අඩු කිරීමට */
+        }
+        .container {
+          width: 100%; /* කුඩා තිරවලදී සම්පූර්ණ පළල ගැනීමට */
+          max-width: 396px; /* උපරිම පළලක් සකස් කිරීමට */
+          margin: 0 auto; /* කුඩා තිරවලදී form එක මැදට ගැනීමට */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Facebook logo සහ tagline අඩංගු කොටස (වම් පස කොටස) -->
+    <div class="left-panel">
+      <h1>Facebook</h1>
+      <p>Connect with friends and the world around you on Facebook.</p>
+    </div>
+
+    <!-- Login form එක (දකුණු පස කොටස) -->
+    <div id="container" class="container">
+      <input
+        type="text"
+        id="email_input"
+        placeholder="Email address or phone number"
+      />
+      <br />
+      <input type="password" id="password_input" placeholder="Password" />
+      <!-- Password input type එක "text" සිට "password" ලෙස වෙනස් කරන ලදි -->
+      <br />
+      <button id="login_button"><b>Log in</b></button>
+      <!-- "Forget password?" h4 tag එක link එකක් ලෙස වෙනස් කරන ලදි, එය Facebook හි ඇති ආකාරයට -->
+      <a href="#" id="forget_password">Forgotten password?</a>
+      <hr />
+      <button id="create_new_account">Create new account</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button-Hover</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #709ef3;
+      }
+      button {
+        width: 300px;
+        height: 150px;
+        border-width: 0;
+        border-radius: 20px;
+        transition-property: background-color, transform;
+        transition-duration: 1s;
+        transition-delay: 0.1s;
+        transition-timing-function: cubic-bezier(0.75, -0.03, 0.15, 1.6);
+      }
+
+      button:hover {
+        background-color: rgb(8, 8, 118);
+        transform: scale(1.1);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button">
+      <button>Button</button>
+    </div>
+  </body>
+</html>

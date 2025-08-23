@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice_3</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+      }
+      #title {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px; /* Title eka saha cards athara space ekak damma */
+      }
+
+      #container {
+        display: grid;
+        /* flex-direction: row; methana one naha */
+        grid-template-columns: repeat(
+          4,
+          1fr
+        ); /* Image eka wage cards size eka adjust wenna */
+        gap: 25px; /* Cards athara gap eka */
+        justify-content: center; /* Cards madin thiyanna */
+        max-width: 100%; /* Overall width ekak damma */
+        margin: 0 auto; /* Container eka madin thiyanna */
+        padding: 20px; /* Container ekata padding ekak damma */
+      }
+      .product-card {
+        /* id="product-card" eka class="product-card" kala */
+        background-color: #fff; /* Image eke background color eka white wage */
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 15px; /* Overall padding eka adjust kala */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Podi shadow ekak damma */
+        align-items: center; /* Athule elements madin thiyanna */
+      }
+      .laptop-image {
+        width: 90%; /* Card eke 90% width ekata hadanna */
+        height: 180px; /* Height eka adjust kala */
+        object-fit: cover; /* Image eka distort nowi fit wenna */
+        border-radius: 15px; /* Border radius eka adjust kala */
+        margin-bottom: 15px; /* Image ekata yatin space ekak damma */
+        /* padding-left, padding-right, justify-content: center; meewa one naha */
+      }
+
+      .laptop-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%; /* Card eke 90% width ekata hadanna */
+        margin-bottom: 5px; /* Image eke wage podi space ekak damma */
+        /* margin: 12px; meka one naha, uda width ekath ekka margin auto hadenawa */
+      }
+      .laptop-details h4 {
+        margin: 0; /* h4 default margins ain kala */
+        font-size: 1.1em;
+      }
+
+      .product-description {
+        width: 90%; /* Card eke 90% width ekata hadanna */
+        margin-bottom: 15px; /* Description ekata yatin space ekak damma */
+        background-color: white; /* Image eka wage white background */
+        height: 100px;
+        overflow-y: auto;
+        padding: 10px; /* Athule text ekata padding ekak damma */
+        border: 1px solid #eee; /* Podi border ekak damma */
+        border-radius: 8px; /* Podi border radius ekak damma */
+        color: #555; /* Text color eka poddak light kala */
+        line-height: 1.5; /* Line height eka adjust kala */
+      }
+
+      .btn-buy-now {
+        background-color: #007bff; /* Blue paata adjust kala */
+        color: white;
+        width: 90%; /* Card eke 90% width ekata hadanna */
+        height: 40px;
+        border-radius: 20px;
+        border: none; /* Border eka ain kala */
+        cursor: pointer;
+        font-size: 1em;
+        margin-bottom: 10px; /* Button dekata athara space ekak damma */
+        transition: background-color 0.2s ease; /* Hover effect ekak damma */
+      }
+      .btn-buy-now:hover {
+        background-color: #0056b3;
+      }
+
+      .add-to-cart {
+        background-color: #333; /* Black paata adjust kala */
+        color: white;
+        width: 90%; /* Card eke 90% width ekata hadanna */
+        height: 40px;
+        border-radius: 20px;
+        border: none; /* Border eka ain kala */
+        cursor: pointer;
+        font-size: 1em;
+        margin-bottom: 5px; /* Card eke bottom ekata lagin thiyanna */
+        transition: background-color 0.2s ease; /* Hover effect ekak damma */
+      }
+      .add-to-cart:hover {
+        background-color: #555;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        #container {
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+          ); /* Tablets walata */
+        }
+      }
+      @media (max-width: 480px) {
+        #container {
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+          ); /* Mobile phones walata */
+          padding: 10px;
+        }
+        .product-card {
+          padding: 10px;
+        }
+        .laptop-image,
+        .laptop-details,
+        .product-description,
+        .btn-buy-now,
+        .add-to-cart {
+          width: 95%; /* Podi screens walata thawa poddak loku karanna */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Products Gallery</h1>
+    <div id="container">
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          class="laptop-image"
+          src="/images/istockphoto-1527843674-612x612.jpg"
+          alt="laptop_image"
+        />
+        <div class="laptop-details">
+          <h4>Laptop</h4>
+          <h4>$399.99</h4>
+        </div>
+        <div class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          asperiores, dolorem facilis iste repellat quidem similique deserunt
+          officiis delectus quis ex culpa, officia eos! Quas, provident, qui non
+          quibusdam recusandae sint harum exercitationem quo beatae porro amet a
+          aspernatur suscipit. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Ipsum, sapiente voluptatibus illo quasi ipsam ab
+          quisquam. Distinctio omnis culpa iusto quaerat veritatis soluta,
+          nesciunt fugit! Nobis accusamus reiciendis ratione, aspernatur minus
+          porro consectetur recusandae beatae nemo commodi quisquam unde aut
+          distinctio illum voluptas iste voluptates, eius culpa! Excepturi,
+          facere impedit?
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </body>
+</html>
