@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery Basics</title>
+    <button>Click</button>
+  </head>
+  <body>
+    <h1 id="heading">Jquery Basics</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime et ad vel
+      soluta, beatae illum excepturi amet. Blanditiis exercitationem quia
+      molestias distinctio qui consequuntur unde reiciendis, beatae natus iure
+      officiis.
+    </p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        console.log("Jquery is ready to use!");
+        $("#heading").css("color", "red");
+        $("button").css("background-color", "green").css("color", "white");
+      });
+
+      $("button").on("click", function () {
+        alert("button was clicked");
+      });
+
+      $$("p").on("mouseenter", handlerIn).on("mouseleave", handlerOut);
+    </script>
+  </body>
+</html>
